@@ -1,0 +1,84 @@
+<div class="row border">
+    <div class="col">
+        <h3 class="text-primary py-2">{{editMode? 'Edit Employee' : 'Add Employee'}}</h3>
+        <form>
+            <div class="form-group row">
+                <label for="id" class="col-2 col-form-label">ID</label>
+                <div class="col-10">
+                <input id="id" #id class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                <input id="name" #name class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="salary" class="col-2 col-form-label">Salary</label>
+                <div class="col-10">
+                <input id="salary" #salary class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="hobby" class="col-2 col-form-label pt-0">Hobbies</label>
+                <div class="col-10">
+                    <div class="form-check form-check-inline" *ngFor="let chk of hobbiesArr">
+                        <input class="form-check-input" type="checkbox" id="{{chk.key}}" value="{{chk.value}}" 
+                        (change)="onChangeHobby($event)" [checked]="selectedHobby.indexOf(chk.value) != -1">
+                        <label class="form-check-label" for="{{chk.key}}">{{chk.key}}</label>
+                      </div>
+                     
+                </div>
+            </div>
+            <div class="form-group row no-gutters">
+                <div class="col-4">
+                    <select  class="form-control" (change)="getState($event)">
+                        <option value="">Select Country</option>
+                        <option value="{{obj.id}}" *ngFor="let obj of country">{{obj.name}}</option>
+                    </select>
+                </div>
+                <div class="col-4 px-2">
+                    <select name="state" class="form-control" (change)="getCity($event)">
+                        <option value="">Select State</option>
+                        <option value="{{obj.id}}" *ngFor="let obj of state">{{obj.name}}</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <select name="city" class="form-control">
+                        <option value="">Select City</option>
+                        <option value="{{obj.id}}" *ngFor="let obj of city">{{obj.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-sm mr-2" (click)="onAddEmployee(id, name, salary)">{{editMode ? 'Edit Employee' : 'Add Employee'}}</button>
+                <button type="button" class="btn btn-primary btn-sm" (click)="onSaveEmployee()">Save Employee</button>
+            </div>
+        </form>
+    </div>
+    <div class="col border-left">
+        <h3 class="text-primary py-2">Employee Details</h3>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Hobbies</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp of employees; index as i">
+                    <td>{{i + 1 }}</td>
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.salary}}</td>
+                    <td>{{emp.hobbies}}</td>
+                    <td><button class="btn btn-secondary btn-sm mr-2"><i class="fa fa-edit" (click)="onEditEmployee(i)"></i></button>
+                        <button class="btn btn-secondary btn-sm" (click)="onDeleteEmployee(i)"><i class="fa fa-trash"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
