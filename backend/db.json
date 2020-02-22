@@ -1,0 +1,71 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "Mumtaz",
+      "salary": 2000,
+      "hobbies": "cricket,chess"
+    },
+    {
+      "id": 2,
+      "name": "Sami",
+      "salary": 1000,
+      "hobbies": "chess"
+    },
+    {
+      "id": 3,
+      "name": "Wasi",
+      "salary": 1600,
+      "hobbies": ""
+    }
+  ],
+  "country": [
+    {
+      "id": 1,
+      "name": "India"
+    },
+    {
+      "id": 2,
+      "name": "America"
+    }
+  ],
+  "state": [
+    {
+      "id": 1,
+      "name": "New Delhi",
+      "country_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Kolkata",
+      "country_id": 1
+    },
+    {
+      "id": 3,
+      "name": "Chennai",
+      "country_id": 1
+    },
+    {
+      "id": 4,
+      "name": "Albama",
+      "country_id": 2
+    },
+    {
+      "id": 5,
+      "name": "Alaska",
+      "country_id": 2
+    }
+  ],
+  "city": [
+    {
+      "id": 1,
+      "name": "Ashok Vihar",
+      "state_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Kalkaji",
+      "state_id": 1
+    }
+  ]
+}
